@@ -1,0 +1,22 @@
+<head>
+  <title>Web Audio Recorder</title>
+</head>
+
+<body>
+  {{> recorder}}
+</body>
+
+<template name="recorder">
+<div class="container">
+ <h1>Web Audio Recorder</h1>
+
+	<input type="button" class="btn btn-primary btn-lg" id="record" value="record" />
+  	<input type="button" class="btn btn-default" id="stop" disabled value="stop" />
+  
+  	<h2>Recordings</h2>
+  	<ul id="recordingslist"></ul>
+  
+  	<h2>Log</h2>
+  	<pre id="log"></pre>
+</div>
+</template>
