@@ -21,18 +21,31 @@ if(Meteor.isClient){
   function createDownloadLink() {
     recorder && recorder.exportWAV(function(blob) {
       var url = URL.createObjectURL(blob);
-      var li = document.createElement('li');
+      var div = document.createElement('div');
+      
       var au = document.createElement('audio');
       var hf = document.createElement('a');
+      var btn = document.createElement('INPUT')
       
+      btn.setAttribute("type","button");
+      btn.setAttribute("value","Save");
+      btn.setAttribute("class","btn btn-primary btn-mini");
+
       au.controls = true;
       au.src = url;
       hf.href = url;
+
       hf.download = new Date().toISOString() + '.wav';
-      hf.innerHTML = hf.download;
-      li.appendChild(au);
-      li.appendChild(hf);
-      recordingslist.appendChild(li);
+      //hf.innerHTML = hf.download;
+      div.appendChild(au);
+      
+      div.appendChild(hf);
+      div.appendChild(btn);
+
+      
+      //recordingOptions.appendChild(btn);
+      recordingslist.appendChild(div);
+      
     });
   }
 
